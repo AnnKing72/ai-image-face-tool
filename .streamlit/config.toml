@@ -1,0 +1,13 @@
+[server]
+# 單檔上傳上限（MB）
+maxUploadSize = 50
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#2563eb"
+
+[client]
+# 隱藏右上角的開發者選單（Deploy 按鈕等），畫面更乾淨
+toolbarMode = "viewer"

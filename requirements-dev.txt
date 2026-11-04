@@ -1,0 +1,5 @@
+# 開發與測試用（部署不需要）：pip install -r requirements-dev.txt
+-r requirements.txt
+pytest>=8.0
+scipy>=1.11
+scikit-image>=0.22

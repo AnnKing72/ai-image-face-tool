@@ -1,0 +1,24 @@
+flowchart TB
+    U(["使用者（瀏覽器）"]) --> SB["側邊欄：上傳 PNG／JPG／BMP 或選範例圖、設定處理解析度上限"]
+    SB --> IO["io_utils.load_image<br/>Pillow 解碼・EXIF 轉正・各種色彩模式 → RGB uint8"]
+    IO --> LS["io_utils.limit_size<br/>長邊超過上限時等比例縮小（INTER_AREA）"]
+    LS --> D[("影像資料：RGB 陣列 + ImageInfo<br/>st.cache_data 快取")]
+    D --> TABS(["st.tabs 分頁<br/>只執行目前開啟的分頁"])
+    TABS --> T1["① 影像資訊"]
+    TABS --> T2["② 色彩空間與直方圖"]
+    TABS --> T3["③ 卷積濾波與 PSNR"]
+    TABS --> T4["④ 人臉偵測"]
+    T1 --> O1["中繼資訊表"]
+    T2 --> CL["color<br/>RGB 分離・YUV／YCbCr 矩陣轉換<br/>直方圖・統計量"]
+    T3 --> FT["filtering<br/>輸入防呆・正規化<br/>卷積（直接法／FFT）・PSNR"]
+    T4 --> FC["face<br/>YuNet 影像金字塔 + NMS<br/>Haar Cascade・標註繪製"]
+    M[("models/ YuNet ONNX")] --> FC
+    CL --> CH["charts<br/>Altair 直方圖・PSNR 長條圖"]
+    FT --> CH
+    O1 --> OUT["畫面輸出：影像・圖表・表格・PNG 下載"]
+    CH --> OUT
+    FC --> OUT
+    classDef core fill:#eef4ff,stroke:#2563eb,color:#111827
+    classDef ui fill:#f8fafc,stroke:#64748b,color:#111827
+    class IO,LS,CL,FT,FC,CH core
+    class SB,T1,T2,T3,T4,O1,OUT ui
