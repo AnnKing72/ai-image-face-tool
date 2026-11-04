@@ -390,4 +390,4 @@ python -m pytest
 
 ## 8. AI 協作
 
-本專案以生成式 AI（Claude）作為協作夥伴開發，完整的 Prompt 歷程、AI 產出與除錯紀錄見期中專題報告第四章。
+本專案以生成式 AI（Claude）作為協作夥伴開發
