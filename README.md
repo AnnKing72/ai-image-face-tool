@@ -376,7 +376,7 @@ python -m pytest
 注意事項：
 
 - 從 Public 儲存庫部署的 App 預設就是公開的，任何人拿到網址都能開啟。
-- App 超過 12 小時沒有人使用會進入休眠。開啟時按 **Yes, get this app back up!**，等約一分鐘就會恢復。交作業前或助教批改前，建議先自己打開一次。
+- App 超過 12 小時沒有人使用會進入休眠。開啟時按 **Yes, get this app back up!**，等約一分鐘就會恢復。
 - Community Cloud 每個 App 的記憶體約 690 MB～2.7 GB，因此預設把大圖縮到 2048 px 再運算。
 
 ## 7. 第三方資源與授權
